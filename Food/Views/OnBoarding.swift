@@ -11,6 +11,8 @@ import UIKit
 struct OnBoarding: View {
     
     @State var p = 0
+    @State var showSheetView = false
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -34,7 +36,10 @@ struct OnBoarding: View {
                     .padding(.bottom,20)
                 
                 ZStack {
-                    NavigationLink(destination: NavBar()) {
+                    
+                    Button(action: {
+                        self.showSheetView.toggle()
+                    }) {
                         Text("Start")
                             .font(.headline)
                             .frame(width: 200, height: 40, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
@@ -43,16 +48,31 @@ struct OnBoarding: View {
                             .cornerRadius(10)
                             .animation(.spring())
                             .offset(x: 4, y: 3)
-                        
                     }
+                    
+                }.sheet(isPresented: $showSheetView) {
+                    Location()
                 }
                 
             }
-            
-            .navigationBarHidden(true)
+            .navigationBarItems(trailing:
+                                    Button(action: {
+                                        self.showSheetView.toggle()
+                                    }) {
+                                        Image(systemName: "arrow.right")
+                                            .font(Font.system(.title3))
+                                            .foregroundColor(Color(#colorLiteral(red: 0.9580881, green: 0.10593573, blue: 0.3403331637, alpha: 1)))
+                                    }
+            )
+        }.sheet(isPresented: $showSheetView) {
+            Location()
         }
+        
+        .navigationBarHidden(true)
     }
+    
 }
+
 
 struct OnBoarding_Previews: PreviewProvider {
     static var previews: some View {
@@ -74,25 +94,25 @@ var Data = [
 ]
 
 struct PageControl : UIViewRepresentable {
-      
-      @Binding var page : Int
-      
-      func makeUIView(context: Context) -> UIPageControl {
-          
-          let view = UIPageControl()
-          view.currentPageIndicatorTintColor = .red
-          view.pageIndicatorTintColor = UIColor.black.withAlphaComponent(0.2)
-          view.numberOfPages = Data.count
-          return view
-      }
-      
-      func updateUIView(_ uiView: UIPageControl, context: Context) {
-          
-          // Updating Page Indicator When Ever Page Changes....
-          
-          DispatchQueue.main.async {
-              
-              uiView.currentPage = self.page
-          }
-      }
-  }
+    
+    @Binding var page : Int
+    
+    func makeUIView(context: Context) -> UIPageControl {
+        
+        let view = UIPageControl()
+        view.currentPageIndicatorTintColor = .red
+        view.pageIndicatorTintColor = UIColor.black.withAlphaComponent(0.2)
+        view.numberOfPages = Data.count
+        return view
+    }
+    
+    func updateUIView(_ uiView: UIPageControl, context: Context) {
+        
+        // Updating Page Indicator When Ever Page Changes....
+        
+        DispatchQueue.main.async {
+            
+            uiView.currentPage = self.page
+        }
+    }
+}
