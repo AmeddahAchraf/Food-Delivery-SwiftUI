@@ -40,15 +40,17 @@ struct OnBoarding: View {
                     label: {
                         Text("Start")
                             .font(.headline)
-                            .frame(width: 200, height: 40, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .frame(width: 200, height: 40, alignment: .center)
                             .foregroundColor(.white)
                             .background(Color(#colorLiteral(red: 0.9580881, green: 0.10593573, blue: 0.3403331637, alpha: 1)))
                             .cornerRadius(10)
                             .animation(.spring())
                             .offset(x: 4, y: 3)
                     })
+                Spacer()
                 
             }
+            
             .navigationBarItems(trailing:
                                     NavigationLink(
                                         destination: Location(),
@@ -58,12 +60,10 @@ struct OnBoarding: View {
                                                 .foregroundColor(Color(#colorLiteral(red: 0.9580881, green: 0.10593573, blue: 0.3403331637, alpha: 1)))
                                         })
             )
+            .navigationBarBackButtonHidden(true)
         }.sheet(isPresented: $showSheetView) {
             Location()
         }
-        
-        .navigationBarBackButtonHidden(true)
-        .navigationBarHidden(true)
     }
     
 }

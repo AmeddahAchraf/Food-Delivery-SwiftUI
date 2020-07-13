@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
+        
         VStack {
             //Top Search Bar
             ZStack {
@@ -34,22 +35,22 @@ struct HomeView: View {
                             .padding(.trailing, 20)
                             .padding(.top, -45)
                     }
-                        HStack {
-                            Image(systemName: "magnifyingglass")
-                                .foregroundColor(.gray)
-                                .font(.title)
-                            
-                            
-                            Text("Search...")
-                                .bold()
-                                .foregroundColor(.gray)
-                            
-                            
-                        }
-                        .frame(width:  ( UIScreen.main.bounds.width)*0.85, height: 40, alignment: .leading)
-                        .padding(.leading, 20)
-                        .background(Color.white)
-                        .cornerRadius(10)
+                    HStack {
+                        Image(systemName: "magnifyingglass")
+                            .foregroundColor(.gray)
+                            .font(.title)
+                        
+                        
+                        Text("Search...")
+                            .bold()
+                            .foregroundColor(.gray)
+                        
+                        
+                    }
+                    .frame(width:  ( UIScreen.main.bounds.width)*0.85, height: 40, alignment: .leading)
+                    .padding(.leading, 20)
+                    .background(Color.white)
+                    .cornerRadius(10)
                     
                 }
                 
@@ -57,13 +58,14 @@ struct HomeView: View {
                 
             }
             
+            //TrendingWeek
             VStack{
                 HStack {
                     Text("Trending this week")
                         .bold()
                         .multilineTextAlignment(.trailing)
                         .padding(.leading, 20)
-                        
+                    
                     Spacer()
                     Text("View all >")
                         .multilineTextAlignment(.leading)
@@ -85,8 +87,10 @@ struct HomeView: View {
             
             Spacer()
         }
-        .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
+        
+        
     }
 }
 

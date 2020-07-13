@@ -9,7 +9,6 @@ import SwiftUI
 
 struct Location: View {
     var body: some View {
-        NavigationView {
             VStack {
                 Image("location")
                     .resizable()
@@ -39,6 +38,8 @@ struct Location: View {
                         .border(Color(#colorLiteral(red: 0.9580881, green: 0.10593573, blue: 0.3403331637, alpha: 1)), width: 3)
                         .cornerRadius(5)
                     })
+                    .navigationBarBackButtonHidden(true)
+                    .navigationBarHidden(true)
                 
                 Text("Select Manually")
                     .bold()
@@ -48,9 +49,7 @@ struct Location: View {
                 
                 
             }
-        }
-        .navigationBarBackButtonHidden(true)
-        .navigationBarHidden(true)
+
     }
     
 }
