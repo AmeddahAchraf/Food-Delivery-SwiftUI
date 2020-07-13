@@ -35,11 +35,9 @@ struct OnBoarding: View {
                 PageControl(page: self.$p)
                     .padding(.bottom,20)
                 
-                ZStack {
-                    
-                    Button(action: {
-                        self.showSheetView.toggle()
-                    }) {
+                NavigationLink(
+                    destination: Location(),
+                    label: {
                         Text("Start")
                             .font(.headline)
                             .frame(width: 200, height: 40, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
@@ -48,30 +46,28 @@ struct OnBoarding: View {
                             .cornerRadius(10)
                             .animation(.spring())
                             .offset(x: 4, y: 3)
-                    }
-                    
-                }.sheet(isPresented: $showSheetView) {
-                    Location()
-                }
+                    })
                 
             }
             .navigationBarItems(trailing:
-                                    Button(action: {
-                                        self.showSheetView.toggle()
-                                    }) {
-                                        Image(systemName: "arrow.right")
-                                            .font(Font.system(.title3))
-                                            .foregroundColor(Color(#colorLiteral(red: 0.9580881, green: 0.10593573, blue: 0.3403331637, alpha: 1)))
-                                    }
+                                    NavigationLink(
+                                        destination: Location(),
+                                        label: {
+                                            Image(systemName: "arrow.right")
+                                                .font(Font.system(.title3))
+                                                .foregroundColor(Color(#colorLiteral(red: 0.9580881, green: 0.10593573, blue: 0.3403331637, alpha: 1)))
+                                        })
             )
         }.sheet(isPresented: $showSheetView) {
             Location()
         }
         
+        .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
     }
     
 }
+
 
 
 struct OnBoarding_Previews: PreviewProvider {
@@ -80,18 +76,7 @@ struct OnBoarding_Previews: PreviewProvider {
     }
 }
 
-struct Page : Identifiable {
-    var id : Int
-    var image : String
-    var title : String
-    var descrip : String
-}
 
-var Data = [
-    Page(id: 0, image: "discover", title: "Discover places near you", descrip: "We make it simple to find the food you crave. Enter your  home addresse and let us do the rest."),
-    Page(id: 1, image: "choose", title: "Choose a Tasty Dish", descrip: "We make it simple to find the food you crave. Enter your  home addresse and let us do the rest."),
-    Page(id: 2, image: "pick", title: "Your Food is on the way", descrip: "We make it simple to find the food you crave. Enter your  home addresse and let us do the rest.")
-]
 
 struct PageControl : UIViewRepresentable {
     
