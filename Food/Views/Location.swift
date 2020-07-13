@@ -23,7 +23,7 @@ struct Location: View {
                     .padding(.all, 20)
                 
                 NavigationLink(
-                    destination: HomeView(),
+                    destination: NavBar(),
                     label: {
                         HStack {
                             Image(systemName: "location.fill")
@@ -46,7 +46,7 @@ struct Location: View {
                     .underline()
                     .foregroundColor(.gray)
                     .padding(.top, 80)
-                
+                Spacer()
                 
             }
 

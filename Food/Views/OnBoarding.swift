@@ -9,10 +9,13 @@ import SwiftUI
 import UIKit
 
 struct OnBoarding: View {
-    
-    @State var p = 0
+
     @State var showSheetView = false
     
+    init() {
+        UIPageControl.appearance().currentPageIndicatorTintColor = .red
+        UIPageControl.appearance().pageIndicatorTintColor = UIColor.black.withAlphaComponent(0.2)
+        }
     var body: some View {
         NavigationView {
             VStack {
@@ -22,6 +25,7 @@ struct OnBoarding: View {
                             Image(page.image)
                                 .resizable()
                                 .scaledToFit()
+                            
                             Text(page.title)
                                 .font(.title).bold()
                                 .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/, 20)
@@ -31,9 +35,8 @@ struct OnBoarding: View {
                         }
                     }
                 }
+                .edgesIgnoringSafeArea(.top)
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
-                PageControl(page: self.$p)
-                    .padding(.bottom,20)
                 
                 NavigationLink(
                     destination: Location(),
@@ -44,7 +47,6 @@ struct OnBoarding: View {
                             .foregroundColor(.white)
                             .background(Color(#colorLiteral(red: 0.9580881, green: 0.10593573, blue: 0.3403331637, alpha: 1)))
                             .cornerRadius(10)
-                            .animation(.spring())
                             .offset(x: 4, y: 3)
                     })
                 Spacer()
@@ -76,28 +78,3 @@ struct OnBoarding_Previews: PreviewProvider {
     }
 }
 
-
-
-struct PageControl : UIViewRepresentable {
-    
-    @Binding var page : Int
-    
-    func makeUIView(context: Context) -> UIPageControl {
-        
-        let view = UIPageControl()
-        view.currentPageIndicatorTintColor = .red
-        view.pageIndicatorTintColor = UIColor.black.withAlphaComponent(0.2)
-        view.numberOfPages = Data.count
-        return view
-    }
-    
-    func updateUIView(_ uiView: UIPageControl, context: Context) {
-        
-        // Updating Page Indicator When Ever Page Changes....
-        
-        DispatchQueue.main.async {
-            
-            uiView.currentPage = self.page
-        }
-    }
-}

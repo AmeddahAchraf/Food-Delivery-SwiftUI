@@ -10,13 +10,10 @@ import SwiftUI
 struct TrendingWeek: View {
     @State var trendingMeal : Card
     var body: some View {
-        
-        
         VStack {
             Image(trendingMeal.image)
                 .resizable()
                 .frame(width: 270, height: 150)
-                .shadow(color : .gray, radius: 350)
             
             HStack {
                 Text(trendingMeal.title)
@@ -49,18 +46,16 @@ struct TrendingWeek: View {
             .padding(.leading, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
             .padding(.trailing, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
             
-            
         }
-
         .frame(width: 250, height: 250)
         .cornerRadius(10)
         
     }
-
+    
 }
 
 struct TrendingWeek_Previews: PreviewProvider {
     static var previews: some View {
-        TrendingWeek(trendingMeal: TrendingCard[1])
+        TrendingWeek(trendingMeal: TrendingCard[0])
     }
 }

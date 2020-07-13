@@ -25,3 +25,5 @@ var TrendingCard = [
     Card(id: 4, image: "maxresdefault2", title: "Shrimp Fries", descrip: "Hot Sauce",stars: 3),
     Card(id: 5, image: "maxresdefault3", title: "Pizza pineapple", descrip: "dont buy iy",stars: 1),
 ]
+
+var FoodTypes = ["Pizza","Drinks","Tacos","Burger","Fries","Top"]

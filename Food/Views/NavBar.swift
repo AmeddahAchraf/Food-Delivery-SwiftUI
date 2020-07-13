@@ -9,74 +9,39 @@
 import SwiftUI
 
 struct NavBar: View {
-    @State var index = 0
+    @State private var selection = 1
+    init() {
+        UITabBar.appearance().isTranslucent = false
+        UITabBar.appearance().backgroundColor = .white
+    }
     var body: some View {
-        HStack{
-            Button(action: {
-                self.index = 0
-            }, label: {
-                VStack {
-                    Image(systemName: "house.fill").resizable()
-                        .foregroundColor(self.index == 0 ? Color(.red).opacity(0.7) : .gray)
-                        .frame(width: 20, height: 15)
-                    Text("Home")
-                        .foregroundColor(self.index == 0 ? Color(.red).opacity(0.7) : .gray)
-                        
-                }
-                .padding(.vertical,10)
-                .padding(.horizontal,35)
-                .cornerRadius(CGFloat(10))
+        
+            TabView(selection: $selection) {
+                HomeView().tabItem {
+                    VStack {
+                        Image(systemName: "house.fill")
+                        Text("Home")
+                    }
+                    
+                }.tag(1)
                 
+                Text("Favorite View").tabItem {
+                    VStack {
+                        Image(systemName: "heart.fill")
+                        Text("Favorite")
+                    }
+                    
+                }.tag(2)
                 
-            })
-            
-            
-            
-            //Second Button
-            
-            Button(action: {
-                self.index = 1
-            }, label: {
-                VStack {
-                    Image(systemName: "heart.fill").resizable()
-                        .foregroundColor(self.index == 1 ? Color(.red).opacity(0.7) : .gray)
-                        .frame(width: 15, height: 15)
-                    Text("Favorite")
-                        .foregroundColor(self.index == 1 ? Color(.red).opacity(0.7) : .gray)
-                        
-                }
-                .padding(.vertical,10)
-                .padding(.horizontal,35)
-                .cornerRadius(CGFloat(10))
-                
-                
-            })
-            
-            
-            
-            
-            //third Button
-            
-            Button(action: {
-                self.index = 2
-            }, label: {
-                VStack {
-                    Image(systemName: "person.fill").resizable()
-                        .foregroundColor(self.index == 2 ? Color(.red).opacity(0.7) : .gray)
-                        .frame(width: 15, height: 15)
-                    Text("Profile")
-                        .foregroundColor(self.index == 2 ? Color(.red).opacity(0.7) : .gray)
-                        
-                }
-                .padding(.vertical,10)
-                .padding(.horizontal,35)
-                .cornerRadius(CGFloat(10))
-                
-                
-            })
-            
-            
-        }
+                Text("Profile").tabItem {
+                    VStack {
+                        Image(systemName: "person.fill")
+                        Text("Profile")
+                    }
+                    
+                }.tag(3)
+            }
+            .accentColor(.red)
     }
 }
 
