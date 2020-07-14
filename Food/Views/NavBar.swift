@@ -23,7 +23,7 @@ struct NavBar: View {
                 
             }.tag(1)
             
-            Text("Favorite View").tabItem {
+            CheckOut().tabItem {
                 VStack {
                     Image(systemName: "heart.fill")
                     Text("Favorite")

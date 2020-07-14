@@ -9,12 +9,14 @@ import SwiftUI
 
 struct Meal: View {
     @State private var quantity = 0
-    var placeHolder = "Nine years earlier, following the events of Toy Story 2, Bo Peep and Woody attempt to rescue RC, Andy's remote-controlled car, from a train rainstorm. Just as they finish the rescue, Woody"
+    @State var meal : Card
+    @State var heart = "heart.fill"
+    var placeHolder = "Nine years earlier, Lorem ipsum dolor sit amet,Morbi sed purus nulla. Curabitur dapibus ultrices lorem vitae tincidunt. Pellentesque quis arcu sit amet urna commodo porttitor. Aenean sit "
     var body: some View {
         VStack {
             ScrollView(.vertical, showsIndicators: false, content: {
                 GeometryReader{reader in
-                    Image("maxresdefault3")
+                    Image(meal.image)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         
@@ -27,7 +29,7 @@ struct Meal: View {
                 
                 VStack(alignment: .leading,spacing: 15){
                     
-                    Text("Chinese Salad")
+                    Text(meal.title)
                         .font(.system(size: 35, weight: .bold))
                     
                     
@@ -41,14 +43,18 @@ struct Meal: View {
                     }
                     
                     HStack {
-                        Text("Some Tomato Sauce, Salade, mixed with cheese.")
+                        Text(meal.descrip)
                             .font(.caption)
                             .foregroundColor(.gray)
                             .padding(.top,5)
                         Spacer()
                         
-                        Button(action: {}, label: {
-                            Image(systemName: "heart.fill")
+                        Button(action: {
+                            withAnimation(.spring(dampingFraction: 0.5)) {
+                                heart = "heart"
+                            }
+                        }, label: {
+                            Image(systemName: heart)
                                 .font(.largeTitle)
                                 .foregroundColor(.red)
                             
@@ -128,6 +134,6 @@ struct Meal: View {
 
 struct Meal_Previews: PreviewProvider {
     static var previews: some View {
-        Meal()
+        Meal(meal: TrendingCard[0])
     }
 }

@@ -17,7 +17,6 @@ struct OurPicks: View {
                 Image(card.image)
                     .resizable()
                     .frame(width: self.card.expand ? (UIScreen.main.bounds.width) : (UIScreen.main.bounds.width)*0.9 , height: self.card.expand ? (UIScreen.main.bounds.height)*0.3 : (UIScreen.main.bounds.height)*0.25 )
-                    //.frame(height: self.card.expand ? 350 : 250)
                     .cornerRadius(self.card.expand ? 5 : 20)
                     .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                 if (self.card.expand) {

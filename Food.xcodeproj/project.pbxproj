@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0443640924BCBB5200973BE7 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0443640824BCBB5200973BE7 /* Meal.swift */; };
+		0457F33324BE409400682CD3 /* CheckOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0457F33224BE409400682CD3 /* CheckOut.swift */; };
 		04695B7124BB46DC006E6728 /* FoodApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04695B7024BB46DC006E6728 /* FoodApp.swift */; };
 		04695B7324BB46DC006E6728 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04695B7224BB46DC006E6728 /* ContentView.swift */; };
 		04695B7524BB46DE006E6728 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04695B7424BB46DE006E6728 /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		0443640824BCBB5200973BE7 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
+		0457F33224BE409400682CD3 /* CheckOut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOut.swift; sourceTree = "<group>"; };
 		04695B6D24BB46DC006E6728 /* Food.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Food.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04695B7024BB46DC006E6728 /* FoodApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodApp.swift; sourceTree = "<group>"; };
 		04695B7224BB46DC006E6728 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				04C0197A24BBC848006050B8 /* TrendingWeek.swift */,
 				0443640824BCBB5200973BE7 /* Meal.swift */,
 				04F7A95124BDE604004123D7 /* OurPicks.swift */,
+				0457F33224BE409400682CD3 /* CheckOut.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 				04C0197724BBAEF0006050B8 /* Location.swift in Sources */,
 				04C0197924BBBFF0006050B8 /* HomeView.swift in Sources */,
 				04C0198024BBDCC0006050B8 /* onBoardingPage.swift in Sources */,
+				0457F33324BE409400682CD3 /* CheckOut.swift in Sources */,
 				04C0197524BB75FA006050B8 /* OnBoarding.swift in Sources */,
 				04695B7124BB46DC006E6728 /* FoodApp.swift in Sources */,
 				04C0197B24BBC848006050B8 /* TrendingWeek.swift in Sources */,

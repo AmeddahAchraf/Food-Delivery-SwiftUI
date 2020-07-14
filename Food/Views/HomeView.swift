@@ -82,11 +82,12 @@ struct HomeView: View {
                             HStack(spacing: 10) {
                                 ForEach(TrendingCard) { card in
                                     NavigationLink(
-                                        destination: Meal(),
+                                        destination: Meal(meal :card),
                                         label: {
                                             TrendingWeek(trendingMeal: card)
                                                 .background(Color.white)
                                                 .cornerRadius(15)
+                                                .shadow(radius: 1)
                                         })
                                         .buttonStyle(PlainButtonStyle())
                                 }
@@ -138,6 +139,7 @@ struct HomeView: View {
                         }
                         
                     }
+                    .shadow(radius: 1)
                     .opacity(self.hero ? 0 : 1)
                     
                     //Our picks
@@ -163,20 +165,12 @@ struct HomeView: View {
                                 GeometryReader{g in
                                     OurPicks(card: self.$data[i], hero: self.$hero)
                                         
-                                        // going to move view up how its down from top...
                                         .offset(y: self.data[i].expand ? -g.frame(in: .global).minY : 0)
-                                        
-                                        // going to hide all other views when a view is expanded...
                                         .opacity(self.hero ? (self.data[i].expand ? 1 : 0) : 1)
-                                        // you can see still scrollview is working so were going to disable it...
-                                        // follow me...
-                                        
                                         .onTapGesture {
                                             
                                             withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 0.8, blendDuration: 0)){
-                                                
                                                 if !self.data[i].expand{
-                                                    // opening only one time then close button will work...
                                                     self.hero.toggle()
                                                     self.data[i].expand.toggle()
                                                 }
@@ -187,8 +181,6 @@ struct HomeView: View {
                                 }
                                 // going to increase height based on expand...
                                 .frame(height: self.data[i].expand ? UIScreen.main.bounds.height : 250)
-                                
-                                // 500 for disabling the drag for scrollview...
                                 .simultaneousGesture(DragGesture(minimumDistance: self.data[i].expand ? 0 : 500).onChanged({ (_) in
                                     
                                     print("dragging")
@@ -211,7 +203,7 @@ struct HomeView: View {
             .background(Color(#colorLiteral(red: 0.9580881, green: 0.10593573, blue: 0.3403331637, alpha: 1)))
             .edgesIgnoringSafeArea(.top)
             
-           
+            
         }
     }
 }
