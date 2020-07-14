@@ -19,6 +19,7 @@
 		04C0197B24BBC848006050B8 /* TrendingWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0197A24BBC848006050B8 /* TrendingWeek.swift */; };
 		04C0197E24BBD003006050B8 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0197D24BBD003006050B8 /* Card.swift */; };
 		04C0198024BBDCC0006050B8 /* onBoardingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0197F24BBDCC0006050B8 /* onBoardingPage.swift */; };
+		04F7A95224BDE604004123D7 /* OurPicks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F7A95124BDE604004123D7 /* OurPicks.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		04C0197A24BBC848006050B8 /* TrendingWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingWeek.swift; sourceTree = "<group>"; };
 		04C0197D24BBD003006050B8 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		04C0197F24BBDCC0006050B8 /* onBoardingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onBoardingPage.swift; sourceTree = "<group>"; };
+		04F7A95124BDE604004123D7 /* OurPicks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OurPicks.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 				04C0197824BBBFF0006050B8 /* HomeView.swift */,
 				04C0197A24BBC848006050B8 /* TrendingWeek.swift */,
 				0443640824BCBB5200973BE7 /* Meal.swift */,
+				04F7A95124BDE604004123D7 /* OurPicks.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0443640924BCBB5200973BE7 /* Meal.swift in Sources */,
+				04F7A95224BDE604004123D7 /* OurPicks.swift in Sources */,
 				04695B8724BB47DE006E6728 /* NavBar.swift in Sources */,
 				04695B7324BB46DC006E6728 /* ContentView.swift in Sources */,
 				04C0197724BBAEF0006050B8 /* Location.swift in Sources */,

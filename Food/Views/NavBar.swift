@@ -11,37 +11,35 @@ import SwiftUI
 struct NavBar: View {
     @State private var selection = 1
     init() {
-        UITabBar.appearance().isTranslucent = false
         UITabBar.appearance().backgroundColor = .white
     }
     var body: some View {
-        
-            TabView(selection: $selection) {
-                HomeView().tabItem {
-                    VStack {
-                        Image(systemName: "house.fill")
-                        Text("Home")
-                    }
-                    
-                }.tag(1)
+        TabView(selection: $selection) {
+            HomeView().tabItem {
+                VStack {
+                    Image(systemName: "house.fill")
+                    Text("Home")
+                }
                 
-                Text("Favorite View").tabItem {
-                    VStack {
-                        Image(systemName: "heart.fill")
-                        Text("Favorite")
-                    }
-                    
-                }.tag(2)
+            }.tag(1)
+            
+            Text("Favorite View").tabItem {
+                VStack {
+                    Image(systemName: "heart.fill")
+                    Text("Favorite")
+                }
                 
-                Text("Profile").tabItem {
-                    VStack {
-                        Image(systemName: "person.fill")
-                        Text("Profile")
-                    }
-                    
-                }.tag(3)
-            }
-            .accentColor(.red)
+            }.tag(2)
+            
+            Text("Profile").tabItem {
+                VStack {
+                    Image(systemName: "person.fill")
+                    Text("Profile")
+                }
+                
+            }.tag(3)
+        }
+        .accentColor(.red)
     }
 }
 

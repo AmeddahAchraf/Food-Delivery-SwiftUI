@@ -39,7 +39,7 @@ struct OnBoarding: View {
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
                 
                 NavigationLink(
-                    destination: Location(),
+                    destination: Location().navigationBarBackButtonHidden(true).navigationBarHidden(true),
                     label: {
                         Text("Start")
                             .font(.headline)
@@ -47,7 +47,6 @@ struct OnBoarding: View {
                             .foregroundColor(.white)
                             .background(Color(#colorLiteral(red: 0.9580881, green: 0.10593573, blue: 0.3403331637, alpha: 1)))
                             .cornerRadius(10)
-                            .offset(x: 4, y: 3)
                     })
                 Spacer()
                 
@@ -55,7 +54,7 @@ struct OnBoarding: View {
             
             .navigationBarItems(trailing:
                                     NavigationLink(
-                                        destination: Location(),
+                                        destination: Location().navigationBarBackButtonHidden(true).navigationBarHidden(true),
                                         label: {
                                             Image(systemName: "arrow.right")
                                                 .font(Font.system(.title3))
@@ -65,7 +64,7 @@ struct OnBoarding: View {
             .navigationBarBackButtonHidden(true)
         }.sheet(isPresented: $showSheetView) {
             Location()
-        }
+        }.animation(.none)
     }
     
 }
