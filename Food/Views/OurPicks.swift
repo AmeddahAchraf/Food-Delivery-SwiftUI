@@ -18,7 +18,8 @@ struct OurPicks: View {
                     .resizable()
                     .frame(width: self.card.expand ? (UIScreen.main.bounds.width) : (UIScreen.main.bounds.width)*0.9 , height: self.card.expand ? (UIScreen.main.bounds.height)*0.3 : (UIScreen.main.bounds.height)*0.25 )
                     //.frame(height: self.card.expand ? 350 : 250)
-                    .cornerRadius(self.card.expand ? 10 : 20)
+                    .cornerRadius(self.card.expand ? 5 : 20)
+                    .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                 if (self.card.expand) {
                     HStack{
                         Spacer()
@@ -86,9 +87,18 @@ struct OurPicks: View {
             
             
             if self.card.expand {
+                VStack{
+                    HStack {
+                        Text("Description")
+                            .font(.title)
+                            .bold()
+                            .padding(.all, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                            Spacer()
+                    }
+                    Text("The U.S. is a country of 50 states covering a vast swath of North America, with Alaska in the northwest and Hawaii extending the nation’s presence into the Pacific Ocean. Major Atlantic Coast cities are New York, a global finance and culture center, and capital Washington, DC. Midwestern metropolis Chicago is known for influential architecture is known for influential architecture and on the west coast, Los Angeles' Hollywood is famed for filmmaking.")
+                        .padding(.all, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                }
                 
-                Text("The U.S. is a country of 50 states covering a vast swath of North America, with Alaska in the northwest and Hawaii extending the nation’s presence into the Pacific Ocean. Major Atlantic Coast cities are New York, a global finance and culture center, and capital Washington, DC. Midwestern metropolis Chicago is known for influential architecture is known for influential architecture and on the west coast, Los Angeles' Hollywood is famed for filmmaking.")
-                    .padding(.all, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                 
             }
             

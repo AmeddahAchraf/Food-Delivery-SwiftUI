@@ -199,8 +199,10 @@ struct HomeView: View {
                         }
                         
                     }.padding(.top, 50)
+                    .padding(.bottom, 150)
                     
                     Spacer()
+                    
                     
                 }
                 .background(Color(#colorLiteral(red: 0.9843164086, green: 0.9843164086, blue: 0.9843164086, alpha: 1)))
@@ -209,8 +211,7 @@ struct HomeView: View {
             .background(Color(#colorLiteral(red: 0.9580881, green: 0.10593573, blue: 0.3403331637, alpha: 1)))
             .edgesIgnoringSafeArea(.top)
             
-            Spacer()
-                .padding(.bottom, 50)
+           
         }
     }
 }
