@@ -46,7 +46,9 @@ struct CheckOut: View {
                 Text("Close")
                     .font(.title2)
             }
- 
+            Text("Work in progress")
+                .bold()
+                .font(.title)
 
             Spacer()
         }

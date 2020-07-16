@@ -14,53 +14,7 @@ struct HomeView: View {
         VStack {
             ScrollView(.vertical, showsIndicators: false) {
                 VStack {
-                    //Top Search Bar
-                    ZStack {
-                        LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.9580881, green: 0.10593573, blue: 0.3403331637, alpha: 1)), Color(#colorLiteral(red: 0.9843164086, green: 0.9843164086, blue: 0.9843164086, alpha: 1))]), startPoint: .top, endPoint: .bottom)
-                            .frame(width: UIScreen.main.bounds.width, height: (UIScreen.main.bounds.height)*0.25, alignment: .center)
-                            .edgesIgnoringSafeArea(.all)
-                        
-                        
-                        VStack {
-                            HStack {
-                                Text("Browse")
-                                    .bold()
-                                    .font(.title)
-                                    .multilineTextAlignment(.trailing)
-                                    .foregroundColor(.white)
-                                    .padding(.leading, 20)
-                                    .padding(.top, -40)
-                                Spacer()
-                                Text("Filter")
-                                    .font(.title2)
-                                    .multilineTextAlignment(.leading)
-                                    .foregroundColor(.white)
-                                    .padding(.trailing, 20)
-                                    .padding(.top, -30)
-                            }
-                            HStack {
-                                Image(systemName: "magnifyingglass")
-                                    .foregroundColor(.gray)
-                                    .font(.title)
-                                
-                                
-                                Text("Search...")
-                                    .bold()
-                                    .foregroundColor(.gray)
-                                
-                                
-                            }
-                            .frame(width:  ( UIScreen.main.bounds.width)*0.85, height: 40, alignment: .leading)
-                            .padding(.leading, 20)
-                            .background(Color.white)
-                            .cornerRadius(10)
-                            
-                        }
-                        
-                        
-                        
-                    }
-                    .opacity(self.hero ? 0 : 1)
+                    SearchBar()
                     
                     //TrendingWeek
                     VStack{
@@ -79,7 +33,7 @@ struct HomeView: View {
                         // Card View
                         
                         ScrollView(.horizontal, showsIndicators: false) {
-                            HStack(spacing: 10) {
+                            HStack {
                                 ForEach(TrendingCard) { card in
                                     NavigationLink(
                                         destination: Meal(meal :card),
@@ -91,7 +45,7 @@ struct HomeView: View {
                                         })
                                         .buttonStyle(PlainButtonStyle())
                                 }
-                                .padding(.all, 10)
+                                .padding(.leading, 30)
                                 
                             }
                         }
@@ -214,3 +168,47 @@ struct HomeView_Previews: PreviewProvider {
     }
 }
 
+
+struct SearchBar: View {
+    @State var search = ""
+    var body: some View {
+        ZStack {
+            LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.9580881, green: 0.10593573, blue: 0.3403331637, alpha: 1)), Color(#colorLiteral(red: 0.9843164086, green: 0.9843164086, blue: 0.9843164086, alpha: 1))]), startPoint: .top, endPoint: .bottom)
+                .frame(width: UIScreen.main.bounds.width, height: (UIScreen.main.bounds.height)*0.25, alignment: .center)
+                .edgesIgnoringSafeArea(.all)
+            
+            
+            VStack {
+                HStack {
+                    Text("Browse")
+                        .bold()
+                        .font(.title)
+                        .multilineTextAlignment(.trailing)
+                        .foregroundColor(.white)
+                        .padding(.leading, 20)
+                        .padding(.top, -40)
+                    Spacer()
+                    Text("Filter")
+                        .font(.title2)
+                        .multilineTextAlignment(.leading)
+                        .foregroundColor(.white)
+                        .padding(.trailing, 20) 
+                        .padding(.top, -30)
+                }
+                HStack {
+                    Image(systemName: "magnifyingglass")
+                        .foregroundColor(.gray)
+                        .font(.title)
+                    TextField("Search...", text: $search)
+                        
+                        .font(.title3)
+                }
+                .frame(width:  ( UIScreen.main.bounds.width)*0.85, height: 40, alignment: .leading)
+                .padding(.leading, 20)
+                .background(Color.white)
+                .cornerRadius(10)
+                
+            }
+        }
+    }
+}

@@ -10,7 +10,7 @@ import SwiftUI
 struct OurPicks: View {
     @Binding var card : Card
     @Binding var hero : Bool
-    
+    @State var heart = "heart.fill"
     var body: some View {
         VStack {
             ZStack {
@@ -92,9 +92,21 @@ struct OurPicks: View {
                             .font(.title)
                             .bold()
                             .padding(.all, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-                            Spacer()
+                        Spacer()
+                        
+                        Button(action: {
+                            withAnimation(.spring(dampingFraction: 0.5)) {
+                                heart = "heart"
+                            }
+                        }, label: {
+                            Image(systemName: heart)
+                                .font(.title)
+                                .foregroundColor(.red)
+                            
+                        })
+                        .padding(.trailing, 30)
                     }
-                    Text("The U.S. is a country of 50 states covering a vast swath of North America, with Alaska in the northwest and Hawaii extending the nation’s presence into the Pacific Ocean. Major Atlantic Coast cities are New York, a global finance and culture center, and capital Washington, DC. Midwestern metropolis Chicago is known for influential architecture is known for influential architecture and on the west coast, Los Angeles' Hollywood is famed for filmmaking.")
+                    Text("Nine years earlier, Lorem ipsum dolor sit amet,Morbi sed purus nulla. Curabitur dapibus ultrices lorem vitae tincidunt. Pellentesque quis arcu sit amet urna commodo porttitor. Aenean sit ")
                         .padding(.all, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                 }
                 
