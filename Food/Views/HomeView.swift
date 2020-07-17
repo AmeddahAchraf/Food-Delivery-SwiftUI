@@ -45,6 +45,7 @@ struct HomeView: View {
                                         })
                                         .buttonStyle(PlainButtonStyle())
                                 }
+                                .padding(.bottom, 10)
                                 .padding(.leading, 30)
                                 
                             }
@@ -135,7 +136,7 @@ struct HomeView: View {
                                 }
                                 // going to increase height based on expand...
                                 .frame(height: self.data[i].expand ? UIScreen.main.bounds.height : 250)
-                                .simultaneousGesture(DragGesture(minimumDistance: self.data[i].expand ? 0 : 500).onChanged({ (_) in
+                                .simultaneousGesture(DragGesture(minimumDistance: self.data[i].expand ? 0 : 800).onChanged({ (_) in
                                     
                                     print("dragging")
                                 }))
